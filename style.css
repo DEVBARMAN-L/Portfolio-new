@@ -1,0 +1,144 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #0f0f0f;
+  color: white;
+  transition: background 0.3s, color 0.3s;
+}
+
+body.light {
+  background: #f4f4f4;
+  color: #000;
+}
+
+.hero {
+  text-align: center;
+  padding: 80px 20px 50px;
+  background: linear-gradient(120deg, #0ff, #f0f);
+}
+
+.hero button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+body.light .hero button {
+  background: #fff;
+  color: #000;
+}
+
+.login-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+  background-color: #121212;
+}
+
+body.light .login-section {
+  background-color: #eee;
+}
+
+.login-box {
+  position: relative;
+  width: 100%;
+  max-width: 350px;
+  padding: 40px;
+  background: #1e1e1e;
+  border-radius: 10px;
+  color: white;
+  overflow: hidden;
+}
+
+body.light .login-box {
+  background: #fff;
+  color: #000;
+}
+
+.login-box::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, #f0f, #0ff, #f0f);
+  animation: border-rotate 6s linear infinite;
+  z-index: -1;
+}
+
+.login-box::after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  background: inherit;
+  z-index: -1;
+  border-radius: 10px;
+}
+
+@keyframes border-rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.input-box {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 10px 0;
+  background: none;
+  border: none;
+  border-bottom: 2px solid #555;
+  color: inherit;
+  outline: none;
+}
+
+.input-box label {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  color: #aaa;
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+.input-box input:focus + label,
+.input-box input:valid + label {
+  top: -15px;
+  font-size: 12px;
+  color: #0ff;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background: #0ff;
+  border: none;
+  border-radius: 5px;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+}
