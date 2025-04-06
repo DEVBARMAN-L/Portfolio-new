@@ -120,6 +120,46 @@
       border-radius: 25px;
       cursor: pointer;
     }
+    .dashboard {
+      display: none;
+      padding: 50px 20px;
+      text-align: center;
+    }
+    .dashboard h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    .dashboard p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 20px;
+      text-align: left;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+    .card p {
+      font-size: 0.95rem;
+    }
+    body.light-mode .card {
+      background: #fff;
+      color: #000;
+    }
     @media (max-width: 600px) {
       header h1 {
         font-size: 2rem;
@@ -141,7 +181,7 @@
     </div>
     <button id="modeToggle">Toggle Dark/Light</button>
   </header>
-  <section class="login-section">
+  <section class="login-section" id="loginSection">
     <div class="login-box">
       <form id="loginForm">
         <h2>Login</h2>
@@ -161,11 +201,50 @@
       </form>
     </div>
   </section>
+  <section class="dashboard" id="dashboard">
+    <h2>Welcome to Your Dashboard</h2>
+    <p>This is your space to manage everything in one place.</p>
+    <div class="cards">
+      <div class="card">
+        <h3><i class="fas fa-laptop-code"></i> Projects</h3>
+        <p>Manage all your development projects here.</p>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-chart-line"></i> Analytics</h3>
+        <p>View stats, traffic, and growth insights.</p>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-envelope"></i> Messages</h3>
+        <p>Stay in touch with your clients and leads.</p>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-user-cog"></i> Profile Settings</h3>
+        <p>Update your name, avatar, and social links.</p>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-file-alt"></i> Resume</h3>
+        <p>Upload and manage your resume/CV for jobs.</p>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-cogs"></i> Settings</h3>
+        <p>Control dark mode, notifications, and more.</p>
+      </div>
+    </div>
+  </section>
   <script>
     const toggle = document.getElementById('modeToggle');
     toggle.addEventListener('click', () => {
       document.body.classList.toggle('light-mode');
-    });
+    });const loginForm = document.getElementById('loginForm');
+const loginSection = document.getElementById('loginSection');
+const dashboard = document.getElementById('dashboard');
+
+loginForm.addEventListener('submit', function (e) {
+  e.preventDefault();
+  loginSection.style.display = 'none';
+  dashboard.style.display = 'block';
+});
+
   </script>
 </body>
 </html>
