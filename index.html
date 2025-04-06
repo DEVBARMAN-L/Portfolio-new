@@ -1,44 +1,171 @@
-<!DOCTYPE html>
-<html lang="en">
+
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio Login</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Dev's Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      background: linear-gradient(to right, #141e30, #243b55);
+      color: #fff;
+      transition: background 0.5s, color 0.5s;
+    }
+    body.light-mode {
+      background: #f3f3f3;
+      color: #111;
+    }
+    header {
+      text-align: center;
+      padding: 60px 20px 20px;
+    }
+    header h1 {
+      font-size: 3rem;
+    }
+    header p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+    .socials {
+      margin-top: 15px;
+    }
+    .socials a {
+      color: inherit;
+      margin: 0 10px;
+      font-size: 1.5rem;
+      transition: color 0.3s;
+    }
+    .socials a:hover {
+      color: #00acee;
+    }
+    #modeToggle {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 25px;
+      background: #00acee;
+      color: white;
+      cursor: pointer;
+    }
+    .login-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+    }
+    .login-box {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 30px;
+      border-radius: 15px;
+      width: 100%;
+      max-width: 400px;
+      color: #fff;
+    }
+    body.light-mode .login-box {
+      background: #fff;
+      color: #000;
+    }
+    .input-box {
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .input-box input {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-bottom: 2px solid #00acee;
+      background: transparent;
+      color: inherit;
+    }
+    .input-box label {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      color: #aaa;
+      transition: 0.3s;
+      pointer-events: none;
+    }
+    .input-box input:focus + label,
+    .input-box input:not(:placeholder-shown) + label {
+      top: -10px;
+      font-size: 0.8rem;
+      color: #00acee;
+    }
+    .options {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .options a {
+      color: #00acee;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    button[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      background: #00acee;
+      color: white;
+      font-weight: bold;
+      border-radius: 25px;
+      cursor: pointer;
+    }
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      .login-box {
+        padding: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
-  !-- HERO SECTION -->
-  <header class="hero">
-    <div class="hero-content">
-      <img src="images/profile.jpg" alt="Dev Barman" class="profile-pic" />
-      <h1>Hey, I'm Dev Barman</h1>
-      <p>I'm a Web Developer | Designer | Freelancer</p>
-      <button id="modeToggle">Toggle Dark/Light</button>
+  <header>
+    <h1>Hey, I'm Dev</h1>
+    <p>Web Developer | Designer | Freelancer</p>
+    <div class="socials">
+      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
     </div>
+    <button id="modeToggle">Toggle Dark/Light</button>
   </header>
-
-  <!-- LOGIN SECTION -->
   <section class="login-section">
     <div class="login-box">
       <form id="loginForm">
         <h2>Login</h2>
         <div class="input-box">
-          <input type="text" required />
+          <input type="text" required placeholder=" " />
           <label>Username</label>
         </div>
         <div class="input-box">
-          <input type="password" required />
+          <input type="password" required placeholder=" " />
           <label>Password</label>
         </div>
         <div class="options">
-          <a href="#">Forget Password</a>
+          <a href="#">Forgot Password?</a>
           <a href="#">Sign Up</a>
         </div>
         <button type="submit">Login</button>
       </form>
     </div>
   </section>
-
-  <script src="script.js"></script>
+  <script>
+    const toggle = document.getElementById('modeToggle');
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('light-mode');
+    });
+  </script>
 </body>
 </html>
