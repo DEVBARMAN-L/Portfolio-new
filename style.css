@@ -184,7 +184,7 @@ body{
     opacity: 0.8;
 }
 .hero {
-  background: linear-gradient(135deg, #0f0f1a, #1a1a2e); /* dark gradient background */
+  background: Sky-blue(135deg, #0f0f1a, #1a1a2e); /* dark gradient background */
   height: 100vh;
   display: flex;
   justify-content: center;
